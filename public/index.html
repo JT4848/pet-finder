@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Pets n stuff</title>
+  </head>
+  <body>
+    <h1>All pets</h1>
+    <ul id="petList">
+
+    </ul>
+    <script>
+      fetch(`/pets`).then(repsonse => repsonse.json())
+      .then(data => {
+        const petList = document.querySelector('#petList')
+        data.forEach(petName => {
+          const listItem = document.createElement('li');
+          listItem.textContent = petName;
+          petList.appendChild(listItem);
+        })
+      })
+
+    </script>
+  </body>
+</html>
